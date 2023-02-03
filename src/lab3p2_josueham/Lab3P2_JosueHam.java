@@ -120,18 +120,21 @@ public class Lab3P2_JosueHam {
                         break;
 
                         case 2: {
-                            System.out.println(listarClientes());
-                            System.out.println("Ingrese el cliente que desea eliminar: ");
+                            System.out.println(listarConce());
+                            System.out.println("Ingrese la posicion que desea eliminar: ");
                             int pos = leer.nextInt();
 
-                            if (pos >= 0 && pos <= clientes.size()) {
-                                if (clientes.get(pos) instanceof Cliente) {
-                                    clientes.remove(pos);
+                            if (pos >= 0 && pos <= concesionarias.size()) {
+                                if (concesionarias.get(pos) instanceof Concesionaria) {
+                                    for (int i = 0; i < concesionarias.get(pos).getVehiculos().size(); i++) {
+                                        System.out.println(i + ".- " + concesionarias.get(pos).getClientes().get(i));
+                                    }
+                                    System.out.println("Ingrese el indice del vehiculo a eliminar: ");
+                                    int pos2 = leer.nextInt();
+                                    concesionarias.get(pos).getClientes().remove(pos2);
                                 } else {
-                                    System.out.println("\nEl indice ingresado no es un cliente.\n");
+                                    System.out.println("\nEl indice ingresado no es valido.\n");
                                 }
-                            } else {
-                                System.out.println("\nIndice invalido.\n");
                             }
                             System.out.println("Cliente eliminado exitosamente");
                         }//Eliminar Clientes
@@ -234,7 +237,7 @@ public class Lab3P2_JosueHam {
                                                 int cantPasaj = leer.nextInt();
 
                                                 vehiculos.add(new Bus(cantPasaj, color, marca, modelo, anio, precio, cantLlant));
-                                               concesionarias.get(pos).getVehiculos().add(new Bus(cantPasaj, color, marca, modelo, anio, precio, cantLlant));
+                                                concesionarias.get(pos).getVehiculos().add(new Bus(cantPasaj, color, marca, modelo, anio, precio, cantLlant));
                                                 System.out.println("Bus agregado correctamente");
                                             }//Agregar Bus
                                             break;
@@ -317,25 +320,122 @@ public class Lab3P2_JosueHam {
                         break;
 
                         case 2: {
-                            System.out.println(listarVehiculos());
+                            System.out.println(listarConce());
                             System.out.println("Ingrese la posicion que desea modificar: ");
                             int pos = leer.nextInt();
-                        }//Modificar Vehiculos
-                        break;
 
-                        case 3: {
-                            System.out.println(listarVehiculos());
-                            System.out.println("Ingrese la posicion que desea eliminar: ");
-                            int pos = leer.nextInt();
+                            if (pos >= 0 && pos <= concesionarias.size()) {
+                                if (concesionarias.get(pos) instanceof Concesionaria) {
+                                    for (int i = 0; i < concesionarias.get(pos).getVehiculos().size(); i++) {
+                                        System.out.println(i + ".- " + concesionarias.get(pos).getVehiculos().get(i));
+                                    }
+                                    System.out.println("Ingrese el indice de vehiculo a modificar: ");
+                                    int pos2 = leer.nextInt();
+                                    int opResp = 0;
 
-                            if (pos >= 0 && pos <= vehiculos.size()) {
-                                if (vehiculos.get(pos) instanceof Vehiculo) {
-                                    vehiculos.remove(pos);
+                                    if (concesionarias.get(pos).getVehiculos().get(pos2) instanceof Carro) {
+                                        opResp = 1;
+                                    }
+                                    if (concesionarias.get(pos).getVehiculos().get(pos2) instanceof CamionCarga) {
+                                        opResp = 2;
+                                    }
+
+                                    if (concesionarias.get(pos).getVehiculos().get(pos2) instanceof Bus) {
+                                        opResp = 3;
+                                    }
+                                    if (concesionarias.get(pos).getVehiculos().get(pos2) instanceof Motocicleta) {
+                                        opResp = 4;
+                                    }
+                                    if (concesionarias.get(pos).getVehiculos().get(pos2) instanceof Bicicleta) {
+                                        opResp = 5;
+                                    }
+                                    
+                                    switch(opResp) {
+                                        case 1: {
+                                            System.out.println("Modificar carro"
+                                            +   "\n1 -> Modificar Cantidad de Puertas" 
+                                            +   "\n2 -> Modificar Velocidad Maxima"
+                                            +   "\n3 -> Modificar Descripcion del motor"
+                                            +   "\n4 -> Regresar"
+                                            +   "\nIngrese la posicion que desea: ");
+                                            int ap = leer.nextInt();
+                                            
+                                            switch (ap){
+                                                case 1: {
+                                                    System.out.println("Ingrese la nueva cantidad de puertas: ");
+                                            int nuePuertas = leer.nextInt();
+                                            
+                                            vehiculos.get(pos).setCantLlantas(nuePuertas);
+                                            ((Vehiculo)concesionarias.get(pos).getVehiculos().get(pos2)).setCantLlantas(nuePuertas);
+                                                }//
+                                                break;
+                                                
+                                                case 2: {
+                                                    
+                                                }//
+                                                break;
+                                                
+                                                case 3: {
+                                                    
+                                                }//
+                                                break;
+                                                
+                                                default: 
+                                                    System.out.println("Regresando...");
+                                            }//
+                                        }//Carro
+                                        break;
+                                        
+                                        case 2: {
+                                            
+                                        }//Camion
+                                        break;
+                                        
+                                        case 3: {
+                                            
+                                        }//Bus
+                                        break;
+                                        
+                                        case 4: {
+                                            
+                                        }//Motocicleta
+                                        break;
+                                        
+                                        case 5: {
+                                            
+                                        }//Bicicleta
+                                        break;
+                                        
+                                        default: 
+                                            System.out.println("...");
+                                    }//Fin switch
                                 } else {
                                     System.out.println("\nEl indice ingresado no es valido.\n");
                                 }
                             }
-                            System.out.println("Nave eliminado exitosamente");
+                            System.out.println("Vehiculo eliminado exitosamente");
+
+                        }//Modificar Vehiculos
+                        break;
+
+                        case 3: {
+                            System.out.println(listarConce());
+                            System.out.println("Ingrese la posicion que desea eliminar: ");
+                            int pos = leer.nextInt();
+
+                            if (pos >= 0 && pos <= concesionarias.size()) {
+                                if (concesionarias.get(pos) instanceof Concesionaria) {
+                                    for (int i = 0; i < concesionarias.get(pos).getVehiculos().size(); i++) {
+                                        System.out.println(i + ".- " + concesionarias.get(pos).getVehiculos().get(i));
+                                    }
+                                    System.out.println("Ingrese el indice de vehiculo a eliminar: ");
+                                    int pos2 = leer.nextInt();
+                                    concesionarias.get(pos).getVehiculos().remove(pos2);
+                                } else {
+                                    System.out.println("\nEl indice ingresado no es valido.\n");
+                                }
+                            }
+                            System.out.println("Vehiculo eliminado exitosamente");
                         }//Eliminar Vehiculo
                         break;
 
@@ -387,6 +487,66 @@ public class Lab3P2_JosueHam {
         for (Object o : vehiculos) {
             if (o instanceof Vehiculo) {
                 cadena += vehiculos.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
+
+    public static String listarCarros() {
+
+        String cadena = "";
+        for (Object o : concesionarias) {
+            if (o instanceof Carro) {
+                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
+
+    public static String listarCamion() {
+
+        String cadena = "";
+        for (Object o : concesionarias) {
+            if (o instanceof CamionCarga) {
+                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
+
+    public static String listarBus() {
+
+        String cadena = "";
+        for (Object o : concesionarias) {
+            if (o instanceof Bus) {
+                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
+
+    public static String listarMoto() {
+
+        String cadena = "";
+        for (Object o : concesionarias) {
+            if (o instanceof Motocicleta) {
+                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
+
+    public static String listarBici() {
+
+        String cadena = "";
+        for (Object o : concesionarias) {
+            if (o instanceof Bicicleta) {
+                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
             }
         }
         return cadena;
