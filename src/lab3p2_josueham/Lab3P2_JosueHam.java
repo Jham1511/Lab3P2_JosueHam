@@ -70,7 +70,7 @@ public class Lab3P2_JosueHam {
                             } else {
                                 System.out.println("\nIndice invalido.\n");
                             }
-                            System.out.println("Concesionaria eliminada exitosamente");
+                            System.out.println("Concesionaria modificada exitosamente");
                         }//Modificar Concesionaria
                         break;
 
@@ -104,8 +104,41 @@ public class Lab3P2_JosueHam {
                             + "\nIngrese la opcion que desea: ");
                     int resp = leer.nextInt();
                     
-                    switch(resp) {
+                    switch (resp) {
+                        case 1: {
+                            System.out.println("Ingrese el nombre del cliente: ");
+                            String nombre = leer.next();
+                            
+                            int id = 1 + clientes.size();
+                            
+                            System.out.println("Ingrese el saldo del cliente");
+                            double sal = leer.nextDouble();
+                            
+                            clientes.add(new Cliente(nombre, id, sal));
+                            System.out.println("Cliente agregado exitosamente");
+                        }//Agregar Clientes 
+                        break;
                         
+                        case 2: {
+                            System.out.println(listarConce());
+                            System.out.println("Ingrese el cliente que desea eliminar: ");
+                            int pos = leer.nextInt();
+
+                            if (pos >= 0 && pos <= clientes.size()) {
+                                if (clientes.get(pos) instanceof Cliente) {
+                                    clientes.remove(pos);
+                                } else {
+                                    System.out.println("\nEl indice ingresado no es un cliente.\n");
+                                }
+                            } else {
+                                System.out.println("\nIndice invalido.\n");
+                            }
+                            System.out.println("Cliente eliminado exitosamente");
+                        }//Eliminar Clientes
+                        break;
+                        
+                        default: 
+                            System.out.println("Regresando...");
                     }//Fin switch CRUD Clientes
                 }//CRUD Clientes
                 break;
@@ -132,6 +165,30 @@ public class Lab3P2_JosueHam {
         for (Object o : concesionarias) {
             if (o instanceof Concesionaria) {
                 cadena += concesionarias.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
+    
+    public static String listarClientes() {
+
+        String cadena = "";
+        for (Object o : clientes) {
+            if (o instanceof Cliente) {
+                cadena += clientes.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar
+    
+    public static String listarVehiculos() {
+
+        String cadena = "";
+        for (Object o : vehiculos) {
+            if (o instanceof Vehiculo) {
+                cadena += vehiculos.indexOf(o) + "- " + o + "\n";
             }
         }
         return cadena;

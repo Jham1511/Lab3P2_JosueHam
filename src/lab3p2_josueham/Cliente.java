@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class Cliente {
     private  String nombre;
     private ArrayList<Vehiculo> vehiculos = new ArrayList();
-    private int id ,saldo;
+    private double id ,saldo;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, int id, int saldo) {
+    public Cliente(String nombre, int id, double saldo) {
         this.nombre = nombre;
         this.id = id;
         this.saldo = saldo;
@@ -23,7 +23,7 @@ public class Cliente {
 
     
 
-    public int getId() {
+    public double getId() {
         return id;
     }
 
@@ -47,7 +47,7 @@ public class Cliente {
         this.vehiculos = vehiculos;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
