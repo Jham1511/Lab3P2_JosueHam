@@ -11,10 +11,15 @@ public class Bus extends Vehiculo {
         super();
     }
 
-    public Bus(int CantPasajeros, String tipo, String color, String marca, String modelo, String anio, double precio, int CantLlantas) {
+    public Bus(int CantPasajeros, String color, String marca, String modelo, String anio, double precio, int CantLlantas) {
         super(color, marca, modelo, anio, precio, CantLlantas);
         this.CantPasajeros = CantPasajeros;
-        this.tipo = tipo;
+        if(CantPasajeros <= 50){
+            this.tipo = "Rapidito";
+        } else {
+            this.tipo = "De Ruta";
+        }
+        
     }
 
     public int getCantPasajeros() {
@@ -40,5 +45,5 @@ public class Bus extends Vehiculo {
                 + "\nTipo: " + tipo;
     }
     
-    
+   
 }

@@ -6,7 +6,8 @@ public class Concesionaria {
     private String nombre, direccion;
     private int ID;
     private double saldo;
-    private ArrayList <Cliente> clientes = new ArrayList();private ArrayList <Vehiculo> vehiculos = new ArrayList();
+    private ArrayList <Cliente> clientes = new ArrayList();
+    private ArrayList <Vehiculo> vehiculos = new ArrayList();
 
     public Concesionaria(String nombre, String direccion, int ID, double saldo) {
         this.nombre = nombre;
