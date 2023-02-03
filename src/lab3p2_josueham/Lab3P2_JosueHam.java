@@ -199,7 +199,7 @@ public class Lab3P2_JosueHam {
                                                 String descMotor = leer.next();
 
                                                 vehiculos.add(new Carro(cantPuertas, velMax, descMotor, color, marca, modelo, anio, precio, cantLlant));
-                                                concesionarias.get(pos).setVehiculos(vehiculos);
+                                                concesionarias.get(pos).getVehiculos().add(new Carro(cantPuertas, velMax, descMotor, color, marca, modelo, anio, precio, cantLlant));
                                                 System.out.println("Carro agregado correctamente");
                                             }//Agregar Carro
                                             break;
@@ -224,7 +224,7 @@ public class Lab3P2_JosueHam {
                                                 }//Fin else para saber si tiene retroexcavadora
 
                                                 vehiculos.add(new CamionCarga(volMax, altura, contiene, color, marca, modelo, anio, precio, cantLlant));
-                                                concesionarias.get(pos).setVehiculos(vehiculos);
+                                                concesionarias.get(pos).getVehiculos().add(new CamionCarga(volMax, altura, contiene, color, marca, modelo, anio, precio, cantLlant));
                                                 System.out.println("Camion de Carga agregado correctamente");
                                             }//Agregar Camion de Carga
                                             break;
@@ -234,7 +234,7 @@ public class Lab3P2_JosueHam {
                                                 int cantPasaj = leer.nextInt();
 
                                                 vehiculos.add(new Bus(cantPasaj, color, marca, modelo, anio, precio, cantLlant));
-                                                concesionarias.get(pos).setVehiculos(vehiculos);
+                                               concesionarias.get(pos).getVehiculos().add(new Bus(cantPasaj, color, marca, modelo, anio, precio, cantLlant));
                                                 System.out.println("Bus agregado correctamente");
                                             }//Agregar Bus
                                             break;
@@ -270,7 +270,7 @@ public class Lab3P2_JosueHam {
                                                 }//Fin else para saber si es electrica
 
                                                 vehiculos.add(new Motocicleta(descMotor, elec, marca, modelo, anio, color, precio, cantLlant));
-                                                concesionarias.get(pos).setVehiculos(vehiculos);
+                                                concesionarias.get(pos).getVehiculos().add(new Motocicleta(descMotor, elec, marca, modelo, anio, color, precio, cantLlant));
                                                 System.out.println("Motocicleta agregada correctamente");
                                             }//Agregar Motocicleta
                                             break;
@@ -296,7 +296,7 @@ public class Lab3P2_JosueHam {
                                                 int radio = leer.nextInt();
 
                                                 vehiculos.add(new Bicicleta(desp, type, radio, color, marca, modelo, anio, precio, cantLlant));
-                                                concesionarias.get(pos).setVehiculos(vehiculos);
+                                                concesionarias.get(pos).getVehiculos().add(new Bicicleta(desp, type, radio, color, marca, modelo, anio, precio, cantLlant));
                                                 System.out.println("Bicicleta agregada correctamente");
                                             }//Agregar Bicicleta
                                             break;
@@ -317,7 +317,9 @@ public class Lab3P2_JosueHam {
                         break;
 
                         case 2: {
-
+                            System.out.println(listarVehiculos());
+                            System.out.println("Ingrese la posicion que desea modificar: ");
+                            int pos = leer.nextInt();
                         }//Modificar Vehiculos
                         break;
 
@@ -332,7 +334,7 @@ public class Lab3P2_JosueHam {
                                 } else {
                                     System.out.println("\nEl indice ingresado no es valido.\n");
                                 }
-                            } 
+                            }
                             System.out.println("Nave eliminado exitosamente");
                         }//Eliminar Vehiculo
                         break;
