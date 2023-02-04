@@ -349,64 +349,141 @@ public class Lab3P2_JosueHam {
                                     if (concesionarias.get(pos).getVehiculos().get(pos2) instanceof Bicicleta) {
                                         opResp = 5;
                                     }
-                                    
-                                    switch(opResp) {
+
+                                    switch (opResp) {
                                         case 1: {
                                             System.out.println("Modificar carro"
-                                            +   "\n1 -> Modificar Cantidad de Puertas" 
-                                            +   "\n2 -> Modificar Velocidad Maxima"
-                                            +   "\n3 -> Modificar Descripcion del motor"
-                                            +   "\n4 -> Regresar"
-                                            +   "\nIngrese la posicion que desea: ");
+                                                    + "\n1 -> Modificar Cantidad de Puertas"
+                                                    + "\n2 -> Modificar Velocidad Maxima"
+                                                    + "\n3 -> Modificar Descripcion del motor"
+                                                    + "\n4 -> Regresar"
+                                                    + "\nIngrese la posicion que desea: ");
                                             int ap = leer.nextInt();
-                                            
-                                            switch (ap){
+
+                                            switch (ap) {
                                                 case 1: {
                                                     System.out.println("Ingrese la nueva cantidad de puertas: ");
-                                            int nuePuertas = leer.nextInt();
-                                            
-                                            vehiculos.get(pos).setCantLlantas(nuePuertas);
-                                            ((Vehiculo)concesionarias.get(pos).getVehiculos().get(pos2)).setCantLlantas(nuePuertas);
-                                                }//
+                                                    int nuePuertas = leer.nextInt();
+
+                                                    ((Carro) concesionarias.get(pos).getVehiculos().get(pos2)).setCantPuertas(nuePuertas);
+                                                }//Puertas
                                                 break;
-                                                
+
                                                 case 2: {
-                                                    
-                                                }//
+                                                    System.out.println("Ingrese la nueva velocidad maxima: ");
+                                                    int nueVel = leer.nextInt();
+
+                                                    ((Carro) concesionarias.get(pos).getVehiculos().get(pos2)).setVelMax(nueVel);
+                                                }//Velocidad
                                                 break;
-                                                
+
                                                 case 3: {
-                                                    
-                                                }//
+                                                    leer.nextLine();
+                                                    System.out.println("Ingrese la nueva descripcion del carro: ");
+                                                    String nueDesp = leer.next();
+
+                                                    ((Carro) concesionarias.get(pos).getVehiculos().get(pos2)).setDescMotor(nueDesp);
+                                                }//Descripcion
                                                 break;
-                                                
-                                                default: 
+
+                                                default:
                                                     System.out.println("Regresando...");
                                             }//
                                         }//Carro
                                         break;
-                                        
+
                                         case 2: {
-                                            
+                                            System.out.println("Modificar camion"
+                                                    + "\n1 -> Modificar Volumen Maximo"
+                                                    + "\n2 -> Modificar Altura"
+                                                    + "\n3 -> Modificar Retroexcavadora"
+                                                    + "\n4 -> Regresar"
+                                                    + "\nIngrese la posicion que desea: ");
+                                            int ap = leer.nextInt();
+
+                                            switch (ap) {
+                                                case 1: {
+                                                    System.out.println("Ingrese el nuevo volumen maximo: ");
+                                                    int nueVol = leer.nextInt();
+
+                                                    ((CamionCarga) concesionarias.get(pos).getVehiculos().get(pos2)).setVolMax(nueVol);
+                                                }//
+                                                break;
+
+                                                case 2: {
+                                                    System.out.println("Ingrese la nueva altura: ");
+                                                    int alt = leer.nextInt();
+
+                                                    ((CamionCarga) concesionarias.get(pos).getVehiculos().get(pos2)).setAltura(alt);
+                                                }//
+                                                break;
+
+                                                case 3: {
+                                                    boolean contiene = false;
+                                                    System.out.println("¿Tiene retroexcavadora?"
+                                                            + "\n1 -> SI"
+                                                            + "\n2 -> NO"
+                                                            + "\nIngrese su opcion: ");
+                                                    int resposta = leer.nextInt();
+                                                    if (resposta == 1) {
+                                                        contiene = true;
+                                                    } else if (resposta == 2) {
+                                                        contiene = false;
+                                                    }//Fin else para saber si tiene retroexcavadora
+
+                                                    ((CamionCarga) concesionarias.get(pos).getVehiculos().get(pos2)).setRetroEx(contiene);
+
+                                                }
+                                                break;
+
+                                                default:
+                                                    System.out.println("...");
+                                            }//Switch
                                         }//Camion
                                         break;
-                                        
+
                                         case 3: {
-                                            
+                                            System.out.println("Modificar Bus"
+                                                    + "\n1 -> Modificar Cantidad de pasajeros"
+                                                    + "\n2 -> Regresar"
+                                                    + "\nIngrese la posicion que desea: ");
+                                            int ap = leer.nextInt();
+
+                                            switch (ap) {
+                                                case 1: {
+                                                    System.out.println("Ingrese la cantidad de pasajeros: ");
+                                                    int cantPasaj = leer.nextInt();
+
+                                                    ((Bus) concesionarias.get(pos).getVehiculos().get(pos2)).setCantPasajeros(cantPasaj);
+                                                }//Cantidad de pasajeros
+                                                break;
+                                                default:
+                                                    System.out.println("...");
+                                            }//Switch
                                         }//Bus
                                         break;
-                                        
+
                                         case 4: {
-                                            
+                                            System.out.println("Modificar Motocicleta"
+                                                    + "\n1 -> Modificar Descripcion del Motor"
+                                                    + "\n2 -> Modificar Altura"
+                                                    + "\n3 -> Modificar Retroexcavadora"
+                                                    + "\n4 -> Regresar"
+                                                    + "\nIngrese la posicion que desea: ");
+                                            int ap = leer.nextInt();
+
+                                            switch (ap) {
+
+                                            }//Fin switch 
                                         }//Motocicleta
                                         break;
-                                        
+
                                         case 5: {
-                                            
+
                                         }//Bicicleta
                                         break;
-                                        
-                                        default: 
+
+                                        default:
                                             System.out.println("...");
                                     }//Fin switch
                                 } else {
@@ -493,63 +570,4 @@ public class Lab3P2_JosueHam {
 
     }//Fin metodo listar
 
-    public static String listarCarros() {
-
-        String cadena = "";
-        for (Object o : concesionarias) {
-            if (o instanceof Carro) {
-                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
-            }
-        }
-        return cadena;
-
-    }//Fin metodo listar
-
-    public static String listarCamion() {
-
-        String cadena = "";
-        for (Object o : concesionarias) {
-            if (o instanceof CamionCarga) {
-                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
-            }
-        }
-        return cadena;
-
-    }//Fin metodo listar
-
-    public static String listarBus() {
-
-        String cadena = "";
-        for (Object o : concesionarias) {
-            if (o instanceof Bus) {
-                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
-            }
-        }
-        return cadena;
-
-    }//Fin metodo listar
-
-    public static String listarMoto() {
-
-        String cadena = "";
-        for (Object o : concesionarias) {
-            if (o instanceof Motocicleta) {
-                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
-            }
-        }
-        return cadena;
-
-    }//Fin metodo listar
-
-    public static String listarBici() {
-
-        String cadena = "";
-        for (Object o : concesionarias) {
-            if (o instanceof Bicicleta) {
-                cadena += concesionarias.indexOf(o) + "- " + o + "\n";
-            }
-        }
-        return cadena;
-
-    }//Fin metodo listar
 }//Fin de la clase
