@@ -466,19 +466,92 @@ public class Lab3P2_JosueHam {
                                         case 4: {
                                             System.out.println("Modificar Motocicleta"
                                                     + "\n1 -> Modificar Descripcion del Motor"
-                                                    + "\n2 -> Modificar Altura"
-                                                    + "\n3 -> Modificar Retroexcavadora"
-                                                    + "\n4 -> Regresar"
+                                                    + "\n2 -> Modificar si es electrica"
+                                                    + "\n3 -> Regresar"
                                                     + "\nIngrese la posicion que desea: ");
                                             int ap = leer.nextInt();
 
                                             switch (ap) {
+                                                case 1: {
+                                                    leer.nextLine();
+                                                    System.out.println("Ingrese la nueva descripcion del motor: ");
+                                                    String desc = leer.next();
 
+                                                    ((Motocicleta) concesionarias.get(pos).getVehiculos().get(pos2)).setDespMotor(desc);
+
+                                                }//
+                                                break;
+
+                                                case 2: {
+                                                    System.out.println("¿Es electrica?"
+                                                            + "\n1 -> SI"
+                                                            + "\n2 -> NO"
+                                                            + "\nIngrese la opcion que desea: ");
+                                                    int respo = leer.nextInt();
+
+                                                    boolean elec = false;
+                                                    if (respo == 1) {
+                                                        elec = true;
+                                                    } else if (respo == 2) {
+                                                        elec = false;
+                                                    }//Fin else para saber si es electrica
+
+                                                    ((Motocicleta) concesionarias.get(pos).getVehiculos().get(pos2)).setElectrica(elec);
+
+                                                }//
+                                                break;
                                             }//Fin switch 
                                         }//Motocicleta
                                         break;
 
                                         case 5: {
+                                            System.out.println("Modificar Bicicleta"
+                                                    + "\n1 -> Modificar Descripcion del Motor"
+                                                    + "\n2 -> Modificar Tipo"
+                                                    + "\n3 -> Modificar Radio"
+                                                    + "\n4 -> Regresar"
+                                                    + "\nIngrese la posicion que desea: ");
+                                            int ap = leer.nextInt();
+
+                                            switch (ap) {
+                                                case 1: {
+                                                    leer.nextLine();
+                                                    System.out.println("Ingrese la nueva descripcion del motor: ");
+                                                    String desc = leer.next();
+
+                                                    ((Bicicleta) concesionarias.get(pos).getVehiculos().get(pos2)).setDesc(desc);
+                                                }//
+                                                break;
+                                                case 2: {
+                                                    System.out.println("Ingrese el tipo de bicicleta: "
+                                                            + "\n1 -> BMX"
+                                                            + "\n2 -> De Calle"
+                                                            + "\n -> Seleccione el tipo: ");
+                                                    int answ = leer.nextInt();
+                                                    String type = null;
+                                                    if (answ == 1) {
+                                                        type = "BMX";
+                                                    } else if (answ == 2) {
+                                                        type = "De Calle";
+                                                    }//Fin else para saber el tipo
+
+                                                    ((Bicicleta) concesionarias.get(pos).getVehiculos().get(pos2)).setTipo(type);
+
+                                                }//
+                                                break;
+
+                                                case 3: {
+                                                    System.out.println("Ingrese el nuevo radio: ");
+                                                    int radio = leer.nextInt();
+
+                                                    ((Bicicleta) concesionarias.get(pos).getVehiculos().get(pos2)).setRadio(radio);
+
+                                                }//
+                                                break;
+
+                                                default:
+                                                    System.out.println("...");
+                                            }//Switch
 
                                         }//Bicicleta
                                         break;
