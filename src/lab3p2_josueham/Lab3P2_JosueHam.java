@@ -611,7 +611,14 @@ public class Lab3P2_JosueHam {
                             for (int i = 0; i < concesionarias.size(); i++) {
                                 System.out.println(i + ".- " + concesionarias.get(pos).getVehiculos().get(i));
                             }
-
+                            double precio = 0;
+                           precio = vehiculos.get(pos).getPrecio() + (vehiculos.get(pos).getPrecio()*0.075);
+                           
+                           double sal = clientes.get(pos).getSaldo();
+                           double SalConce = concesionarias.get(pos).getSaldo();
+                           
+                           clientes.get(pos).setSaldo((int) (sal - precio));
+                           concesionarias.get(pos).setSaldo(SalConce + precio);
                         }
                         break;
 
@@ -622,7 +629,15 @@ public class Lab3P2_JosueHam {
                             for (int i = 0; i < clientes.size(); i++) {
                                 System.out.println(i + ".- " + clientes.get(pos).getVehiculos().get(i));
                             }
+                            double precio = vehiculos.get(pos).getPrecio();
+                            
+                            double sal = clientes.get(pos).getSaldo();
+                           double SalConce = concesionarias.get(pos).getSaldo();
+                           
+                           clientes.get(pos).setSaldo((int) (sal + precio));
+                           concesionarias.get(pos).setSaldo(SalConce - precio);
                         }//
+//
                         default:
 
                     }
