@@ -597,7 +597,35 @@ public class Lab3P2_JosueHam {
                 break;
 
                 case 4: {
+                    System.out.println("Compra/Venta"
+                            + "\n1 -> Comprar"
+                            + "\n2 -> Vender");
+                    int respuesta = leer.nextInt();
 
+                    switch (respuesta) {
+                        case 1: {
+                            System.out.println(listarConce());
+
+                            System.out.println("Ingrese el indice de la concesionaria: ");
+                            int pos = leer.nextInt();
+                            for (int i = 0; i < concesionarias.size(); i++) {
+                                System.out.println(i + ".- " + concesionarias.get(pos).getVehiculos().get(i));
+                            }
+
+                        }
+                        break;
+
+                        case 2: {
+                            System.out.println(listarClientes());
+                            System.out.println("Ingrese el indice del cliente: ");
+                            int pos = leer.nextInt();
+                            for (int i = 0; i < clientes.size(); i++) {
+                                System.out.println(i + ".- " + clientes.get(pos).getVehiculos().get(i));
+                            }
+                        }//
+                        default:
+
+                    }
                 }//Compra/Venta
                 break;
 
